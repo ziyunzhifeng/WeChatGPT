@@ -1,0 +1,32 @@
+allprojects {
+    repositories {
+        maven {
+            allowInsecureProtocol = true
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
+        maven {
+            allowInsecureProtocol = true
+            url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'
+        }
+        maven {
+            allowInsecureProtocol = true
+            url 'http://maven.aliyun.com/nexus/content/repositories/google'
+        }
+        maven {
+            allowInsecureProtocol = true
+            url 'http://maven.aliyun.com/nexus/content/repositories/gradle-plugin'
+        }
+        mavenCentral()
+        google()
+    }
+}
+
+ext {
+    androidBuildToolsVersion = "29.0.3"
+    androidCompileSdkVersion = 29
+    androidVersionCode = 24
+    androidVersionName = "24.0"
+    androidMinSdkVersion = 29// 9.0
+    androidTargetSdkVersion = 30// 11.0
+    testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
+}

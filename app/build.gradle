@@ -1,0 +1,74 @@
+apply plugin: 'com.android.application'
+apply from: '../files/default.gradle'
+
+android {
+    def globalConfig = rootProject.extensions.getByName("ext")
+    buildToolsVersion globalConfig.getAt("androidBuildToolsVersion")
+    compileSdkVersion globalConfig.getAt("androidCompileSdkVersion")
+
+    defaultConfig {
+        applicationId "com.ziy.spark.chat"
+        minSdkVersion globalConfig.getAt("androidMinSdkVersion")
+        targetSdkVersion globalConfig.getAt("androidTargetSdkVersion")
+        versionCode globalConfig.getAt("androidVersionCode")
+        versionName globalConfig.getAt("androidVersionName")
+
+//        testInstrumentationRunner globalConfig.getAt("testInstrumentationRunner")
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath = true
+            }
+        }
+//        ndk {
+//            abiFilters "armeabi-v7a", "x86"
+//        }
+    }
+
+    sourceSets {
+        main {
+            assets.srcDirs = ['src/main/assets']
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    signingConfigs {
+        release {
+            storeFile file('../files/debug.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
+        debug {
+            storeFile file('../files/debug.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+        }
+        release {
+            minifyEnabled true
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), '../proguard-rules.pro'
+            consumerProguardFiles '../proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    compileOnly files('libs\\XposedBridgeApi-82.jar')
+//    implementation files('libs/SparkChain.aar')
+    implementation 'com.squareup.okhttp3:okhttp:4.9.1'
+    implementation 'com.alibaba:fastjson:1.2.80'
+    implementation 'com.google.code.gson:gson:2.8.9'
+}

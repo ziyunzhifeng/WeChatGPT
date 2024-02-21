@@ -4,7 +4,7 @@
     这个工程不能独立运行，需要依赖具有Java Hook 核心的框架支持。自己制作了一个名字叫“玩应用”的双开工具也可以支持加载这个模块。
 
 ## 效果
-<video src=files/多开操作视频.mov width="宽度" height="高度" controls="controls"></video>
+<video src=files/多开操作视频.mov controls="controls"></video>
 
 ## 使用方法 
 1.去讯飞官网上注册申请免费的3.0API 

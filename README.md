@@ -4,7 +4,7 @@
     这个工程不能独立运行，需要依赖具有Java Hook 核心的框架支持。自己制作了一个名字叫“玩应用”的双开工具也可以支持加载这个模块。
 
 ## 效果
-<video src="[视频直链地址](https://www.bilibili.com/video/BV1eC4y1k7P4/?vd_source=34b822263a923ff99088638112b51c0a)" width="宽度" height="高度" controls="controls"></video>
+<video src="https://www.bilibili.com/video/BV1eC4y1k7P4/?vd_source=34b822263a923ff99088638112b51c0a" width="宽度" height="高度" controls="controls"></video>
 
 ## 使用方法 
 1.去讯飞官网上注册申请免费的3.0API 
